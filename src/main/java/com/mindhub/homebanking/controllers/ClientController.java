@@ -1,8 +1,10 @@
 package com.mindhub.homebanking.controllers;
 
 import com.mindhub.homebanking.dtos.AccountsDTO;
+import com.mindhub.homebanking.dtos.CardDTO;
 import com.mindhub.homebanking.dtos.ClientDTO;
 import com.mindhub.homebanking.models.Account;
+import com.mindhub.homebanking.models.Card;
 import com.mindhub.homebanking.models.Client;
 import com.mindhub.homebanking.repositories.AccountRepository;
 import com.mindhub.homebanking.repositories.ClientRepository;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 @RestController
 @CrossOrigin (origins = "*")
@@ -78,13 +81,24 @@ public class ClientController {
         }
     }
 
-//    @GetMapping("/current/accounts")
-//    public ResponseEntity<?> getAccounts(){
-//        String userMail = SecurityContextHolder.getContext().getAuthentication().getName();
-//        Client client = clientRepository.findByEmail(userMail);
-//
-//        return ResponseEntity.ok(new AccountsDTO(client));
-//    }
+    @GetMapping("/current/accounts")
+    public ResponseEntity<List<AccountsDTO>> getAccounts(){
+        String userMail = SecurityContextHolder.getContext().getAuthentication().getName();
+        Client client = clientRepository.findByEmail(userMail);
 
+        List<Account> accounts = client.getAccounts();
+
+        return new ResponseEntity<>(accounts.stream().map(AccountsDTO::new).collect(java.util.stream.Collectors.toList()), HttpStatus.OK);
+    }
+
+    @GetMapping("/current/cards")
+    public ResponseEntity<List<CardDTO>> getCards(){
+        String userMail = SecurityContextHolder.getContext().getAuthentication().getName();
+        Client client = clientRepository.findByEmail(userMail);
+
+        Set<Card> cards = client.getCards();
+
+        return new ResponseEntity<>(cards.stream().map(CardDTO::new).collect(java.util.stream.Collectors.toList()), HttpStatus.OK);
+    }
 
 }

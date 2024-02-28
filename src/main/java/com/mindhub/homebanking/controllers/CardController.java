@@ -38,7 +38,7 @@ public class CardController {
                 return new ResponseEntity<>("Maximum number of cards reached", HttpStatus.FORBIDDEN);
             }
 
-            String cardNumber = String.format("%4d", new Random().nextInt(10000));
+            String cardNumber = String.format("%4d",1000 +new Random().nextInt(9000));
             String cardFinalNumber = cardNumber + "-" + cardNumber + "-" + cardNumber + "-" + cardNumber;    // 0000-0000-0000-0000
             int cvvNumber = 100 + new Random().nextInt(900);
 
