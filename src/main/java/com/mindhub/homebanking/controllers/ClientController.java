@@ -1,7 +1,10 @@
 package com.mindhub.homebanking.controllers;
 
+import com.mindhub.homebanking.dtos.AccountsDTO;
 import com.mindhub.homebanking.dtos.ClientDTO;
+import com.mindhub.homebanking.models.Account;
 import com.mindhub.homebanking.models.Client;
+import com.mindhub.homebanking.repositories.AccountRepository;
 import com.mindhub.homebanking.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,7 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @CrossOrigin (origins = "*")
@@ -17,6 +22,9 @@ import java.util.List;
 public class ClientController {
     @Autowired
     private ClientRepository clientRepository;
+
+    @Autowired
+    private AccountRepository accountRepository;
     @GetMapping("/")
     public ResponseEntity<List<ClientDTO>> getAllClients(){
         List<Client> clients= clientRepository.findAll();
@@ -46,4 +54,37 @@ public class ClientController {
 
         return ResponseEntity.ok(new ClientDTO(client));
     }
+
+    @PostMapping("/current/accounts")
+    public ResponseEntity<?> createAccount() {
+        try {
+            String userMail = SecurityContextHolder.getContext().getAuthentication().getName();
+            Client client = clientRepository.findByEmail(userMail);
+
+            if (client.getAccounts().size() >= 3) {
+                return new ResponseEntity<>("Maximum number of accounts reached", HttpStatus.FORBIDDEN);
+            }
+
+            String accountNumber = "VIN-" + String.format("%08d", new Random().nextInt(100000000));
+            Account account = new Account(accountNumber, LocalDate.now(), 0.0);
+
+            client.addAccount(account);
+            clientRepository.save(client);
+            accountRepository.save(account);
+
+            return new ResponseEntity<>("Created", HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>("internal server error", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+//    @GetMapping("/current/accounts")
+//    public ResponseEntity<?> getAccounts(){
+//        String userMail = SecurityContextHolder.getContext().getAuthentication().getName();
+//        Client client = clientRepository.findByEmail(userMail);
+//
+//        return ResponseEntity.ok(new AccountsDTO(client));
+//    }
+
+
 }

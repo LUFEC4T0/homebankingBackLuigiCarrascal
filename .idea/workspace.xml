@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2ff522b-005e-4c76-aa45-0cd8978955d8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d2ff522b-005e-4c76-aa45-0cd8978955d8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,6 +64,7 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -101,7 +100,7 @@
       <recent name="com.mindhub.homebanking.dtos" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.homebanking [clean]">
+  <component name="RunManager" selected="Gradle.homebanking [bootRun]">
     <configuration name="homebanking [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -148,8 +147,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.homebanking [clean]" />
         <item itemvalue="Gradle.homebanking [bootRun]" />
+        <item itemvalue="Gradle.homebanking [clean]" />
       </list>
     </recent_temporary>
   </component>
