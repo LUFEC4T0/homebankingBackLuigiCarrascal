@@ -34,8 +34,8 @@ public class HomebankingApplication {
 									  CardRepository cardRepository){
 		return  args -> {
 			Client melba = new Client("Melba", "Morel", "melba@mindhub.com", passwordEncoder.encode("melba123") );
-			Account melba1 = new Account("123456", LocalDate.now(), 5000.00);
-			Account melba2 = new Account("78945", LocalDate.now(), 7500.00);
+			Account melba1 = new Account("VIN-12345678", LocalDate.now(), 5000.00);
+			Account melba2 = new Account("VIN-09876543", LocalDate.now(), 7500.00);
 
 			clientRepository.save(melba);
 			melba.addAccount(melba1);
@@ -56,8 +56,8 @@ public class HomebankingApplication {
 
 
 			Client Melba2 = new Client("Melba2", "Morel2", "melba2@mindhub.com ", passwordEncoder.encode("melba123"));
-			Account melba2_1 = new Account("654321", LocalDate.now(), 5000.00);
-			Account melba2_2 = new Account("567890", LocalDate.now(), 7500.00);
+			Account melba2_1 = new Account("VIN-12435687", LocalDate.now(), 5000.00);
+			Account melba2_2 = new Account("VIN-56784321", LocalDate.now(), 7500.00);
 
 			clientRepository.save(Melba2);
 			Melba2.addAccount(melba2_1);
