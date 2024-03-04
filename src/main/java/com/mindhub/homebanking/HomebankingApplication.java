@@ -61,7 +61,6 @@ public class HomebankingApplication {
 
 			clientRepository.save(Melba2);
 			Melba2.addAccount(melba2_1);
-//
 			Melba2.addAccount(melba2_2);
 			accountRepository.save(melba2_1);
 			accountRepository.save(melba2_2);

@@ -33,7 +33,7 @@ public class TransactionController {
     @Autowired
     private TransactionRepository transactionRepository;
 
-    @Transactional
+    @Transactional //transactional para que no se rompa la base de datos
     @PostMapping("/transactions")
     public ResponseEntity<?> createTransaction(@RequestBody TransactionApplyDTO transactionApplyDTO) {
         String userMail = SecurityContextHolder.getContext().getAuthentication().getName();

@@ -37,7 +37,7 @@ public class CardController {
             String userMail = SecurityContextHolder.getContext().getAuthentication().getName();
             Client client = clientRepository.findByEmail(userMail);
 
-            if (cardRepository.countByTypeAndClient(Cardtype.valueOf(cardApplyDTO.cardType()), client) == 3) {
+            if (cardRepository.countByTypeAndClient(Cardtype.valueOf(cardApplyDTO.cardType()), client) >= 3) {
                 return ResponseEntity.status(403).body("Limit reached per card type, max 3");
             }
 
