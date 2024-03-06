@@ -1,13 +1,10 @@
 package com.mindhub.homebanking.filters;
 
-import com.mindhub.homebanking.services.JwtUtilService;
+import com.mindhub.homebanking.securityServices.JwtUtilService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.hibernate.annotations.CollectionTypeRegistration;
-import org.hibernate.annotations.Comment;
-import org.hibernate.annotations.Struct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -8,6 +8,7 @@ import com.mindhub.homebanking.models.Card;
 import com.mindhub.homebanking.models.Client;
 import com.mindhub.homebanking.repositories.AccountRepository;
 import com.mindhub.homebanking.repositories.ClientRepository;
+import com.mindhub.homebanking.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,20 +24,20 @@ import java.util.Set;
 @CrossOrigin (origins = "*")
 @RequestMapping("/api/clients")
 public class ClientController {
-    @Autowired
-    private ClientRepository clientRepository;
 
     @Autowired
     private AccountRepository accountRepository;
+
+    @Autowired
+    private ClientService clientService;
+
     @GetMapping("/")
     public ResponseEntity<List<ClientDTO>> getAllClients(){
-        List<Client> clients= clientRepository.findAll();
-        return new ResponseEntity<>(clients.stream().map(ClientDTO::new).collect(java.util.stream.Collectors.toList()), HttpStatus.OK);
-
+        return new ResponseEntity<>(clientService.getAllClientsDTO(), HttpStatus.OK);
     }
     @GetMapping("/{id}")
     public ResponseEntity<ClientDTO> getClientById(@PathVariable Long id){
-        Client client = clientRepository.findById(id).orElse(null);
+        Client client = clientService.getClientById(id);
         if(client == null){
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
@@ -53,7 +54,7 @@ public class ClientController {
     @GetMapping("/current")
     public ResponseEntity<?> getClient() {
         String userMail = SecurityContextHolder.getContext().getAuthentication().getName();
-        Client client = clientRepository.findByEmail(userMail);
+        Client client = clientService.getClientByEmail(userMail);
 
         return ResponseEntity.ok(new ClientDTO(client));
     }
@@ -62,7 +63,7 @@ public class ClientController {
     public ResponseEntity<?> createAccount() {
         try {
             String userMail = SecurityContextHolder.getContext().getAuthentication().getName();
-            Client client = clientRepository.findByEmail(userMail);
+            Client client = clientService.getClientByEmail(userMail);
 
             if (client.getAccounts().size() >= 3) {
                 return new ResponseEntity<>("Maximum number of accounts reached", HttpStatus.FORBIDDEN);
@@ -72,7 +73,7 @@ public class ClientController {
             Account account = new Account(accountNumber, LocalDate.now(), 0.0);
 
             client.addAccount(account);
-            clientRepository.save(client);
+            clientService.saveClient(client);
             accountRepository.save(account);
 
             return new ResponseEntity<>("Created", HttpStatus.CREATED);
@@ -84,7 +85,7 @@ public class ClientController {
     @GetMapping("/current/accounts")
     public ResponseEntity<List<AccountsDTO>> getAccounts(){
         String userMail = SecurityContextHolder.getContext().getAuthentication().getName();
-        Client client = clientRepository.findByEmail(userMail);
+        Client client = clientService.getClientByEmail(userMail);
 
         List<Account> accounts = client.getAccounts();
 
@@ -94,7 +95,7 @@ public class ClientController {
     @GetMapping("/current/cards")
     public ResponseEntity<List<CardDTO>> getCards(){
         String userMail = SecurityContextHolder.getContext().getAuthentication().getName();
-        Client client = clientRepository.findByEmail(userMail);
+        Client client = clientService.getClientByEmail(userMail);
 
         Set<Card> cards = client.getCards();
 
