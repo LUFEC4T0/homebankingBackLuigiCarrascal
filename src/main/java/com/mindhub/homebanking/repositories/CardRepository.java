@@ -18,4 +18,6 @@ public interface CardRepository extends JpaRepository<Card, Long> {
             Cardtype type,
             Client client
     );
+
+    Boolean existsCardByCardHolder(String cardHolder);
 }

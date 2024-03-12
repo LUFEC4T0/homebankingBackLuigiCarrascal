@@ -30,7 +30,7 @@ public class WebConfig {
                 .headers(heeaders -> heeaders.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/api/auth/login", "/api/auth/test", "/api/auth/register", "/h2-console/**")
-                        .permitAll().anyRequest().authenticated()
+                        .permitAll().anyRequest().permitAll()
                 )
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(
