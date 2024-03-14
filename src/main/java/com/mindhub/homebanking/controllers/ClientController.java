@@ -21,7 +21,6 @@ import java.util.Random;
 import java.util.Set;
 
 @RestController
-@CrossOrigin (origins = "*")
 @RequestMapping("/api/clients")
 public class ClientController {
 

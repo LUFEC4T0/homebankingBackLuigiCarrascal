@@ -19,7 +19,6 @@ import java.time.LocalDate;
 import java.util.Random;
 
 @RestController
-@CrossOrigin(origins = "*")
 @RequestMapping("/api/clients")
 public class CardController {
 
