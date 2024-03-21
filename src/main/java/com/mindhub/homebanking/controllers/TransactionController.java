@@ -76,7 +76,7 @@ public class TransactionController {
         accountRepository.save(accountOrigen);
         accountRepository.save(accountDestiny);
 
-        Transaction transactionOrigen = new Transaction(TransactionType.DEBIT, transactionApplyDTO.amount(), transactionApplyDTO.description(), LocalDateTime.now());
+        Transaction transactionOrigen = new Transaction(TransactionType.DEBIT, -transactionApplyDTO.amount(), transactionApplyDTO.description(), LocalDateTime.now());
         Transaction transactionDestiny = new Transaction(TransactionType.CREDIT, transactionApplyDTO.amount(), transactionApplyDTO.description(), LocalDateTime.now());
 
         accountOrigen.addTransaction(transactionOrigen);
