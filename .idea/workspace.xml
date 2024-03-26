@@ -13,7 +13,19 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/controllers/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/controllers/TransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/mindhub/homebanking/controllers/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/mindhub/homebanking/controllers/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/mindhub/homebanking/controllers/LoanController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/mindhub/homebanking/controllers/LoanController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/mindhub/homebanking/models/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/mindhub/homebanking/models/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/mindhub/homebanking/models/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/mindhub/homebanking/models/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/mindhub/homebanking/repositories/ClientLoanRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/mindhub/homebanking/repositories/ClientLoanRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TransactionController.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/controllers/LoanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/controllers/LoanController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/models/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/models/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/models/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/repositories/ClientLoanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/repositories/ClientLoanRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/securityServices/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mindhub/homebanking/securityServices/UserDetailsServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +121,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/MINDHUB/java/homebankingBack2/homebankingLuigiCarrascal&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
 }</component>
   <component name="RecentsManager">

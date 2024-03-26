@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private ClientRepository clientRepository;
-    @Override
+    @Override //para garantizar que estás sobrescribiendo correctamente un método de una superclase
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         var client = clientRepository.findByEmail(username);
         if (client == null) {
@@ -25,5 +25,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .roles("CLIENT")
                 .build();
     }
-
 }

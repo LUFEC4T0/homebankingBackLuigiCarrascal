@@ -23,11 +23,9 @@ public class Client {
     private List<ClientLoan> clientLoans = new ArrayList<>();
 
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
-//   @JsonManagedReference
     private List<Account> accounts = new ArrayList<>();
 
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
-//   @JsonManagedReference
     private Set<Card> cards = new HashSet<>();
     public Client() { }
 

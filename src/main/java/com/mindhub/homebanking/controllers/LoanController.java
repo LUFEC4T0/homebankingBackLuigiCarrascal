@@ -47,6 +47,10 @@ public class LoanController {
         String userMail = SecurityContextHolder.getContext().getAuthentication().getName();
         Client client = clientRepository.findByEmail(userMail);
 
+        if (clientLoanRepository.existsClientLoanByClientAndLoan(client, loanRepository.findByName(loanApplyDTO.name()))) {
+            return new ResponseEntity<>("Loan already exists", HttpStatus.FORBIDDEN);
+        }
+
         if (loanApplyDTO.name().isBlank()) {
             return new ResponseEntity<>("Name cannot be empty", HttpStatus.FORBIDDEN);
         }

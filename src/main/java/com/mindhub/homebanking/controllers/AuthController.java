@@ -50,6 +50,11 @@ public class AuthController {
             final UserDetails userDetails = userDetailsService.loadUserByUsername(loginDTO.email());
             final String jwt = jwtUtilService.generateToken(userDetails);
 
+            Client client = clientRepository.findByEmail(loginDTO.email());
+            if (client == null) {
+                return new ResponseEntity<>("Incorrect email or password", HttpStatus.FORBIDDEN);
+            }
+
             return ResponseEntity.ok(jwt);
         }catch (Exception e){
             return new ResponseEntity<>("incorrect email or password", HttpStatus.BAD_REQUEST);
